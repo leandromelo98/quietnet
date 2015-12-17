@@ -1,3 +1,4 @@
+# this is deffining each character in binary
 psk = {
 " "  :"1",
 "!" :"111111111",
@@ -96,16 +97,19 @@ psk = {
 '~'   :"1011010111",
 }
 
+# is defining the keys for decode
 decode_psk = {}
 for k, v in psk.items():
     decode_psk[v] = k
-
+    
+# this is telling what encode should do
 def encode(string):
     result = []
     for c in string:
         result.append(psk[c])
     return '00'.join(result) + '00'
-
+    
+# thiis is telling what decode should do
 def decode(string):
     try:
         return decode_psk[''.join([str(i) for i in string])]
